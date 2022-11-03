@@ -1,5 +1,10 @@
 # Greeting
+
+if [ "${os}" = "Arch Linux" ]; then
+echo "welcome to arch"
+elif [ "${os}" = "Void Linux" ]; then
 echo "welcome to the void"
+fi
 
 # Export PATH$
 export PATH=~/.local/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/usr/share/games:/usr/local/sbin:/usr/sbin:/sbin:/usr/local/texlive/2022/bin/x86_64-linux:~/.emacs.d/bin:$PATH
@@ -13,6 +18,7 @@ alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 alias batt='upower -i /org/freedesktop/UPower/devices/battery_BAT1'
+alias sudo='doas'
 #####################################################
 # Auto completion / suggestion
 # Mixing zsh-autocomplete and zsh-autosuggestions
@@ -106,9 +112,9 @@ setopt dotglob
 setopt histappend # do not overwrite history
 
 
-# sudo not required for some system commands
-for command in cryptsetup mount umount poweroff reboot ; do
-alias $command="sudo $command"
+# doas not required for some system commands
+for command in cryptsetup mount umount poweroff reboot; do
+alias $command="doas $command"
 done; unset command
 
 ### ARCHIVE EXTRACTION ###
@@ -190,17 +196,17 @@ if [ "${os}" = "Arch Linux" ]; then
       pac-cln="paru -Scc"
 elif [ "${os}" = "Void Linux" ]; then
     alias \
-      xb-up="sudo xbps-install -Suv && xcheckrestart" \
-      xb-get="sudo xpbs-install" \
-      xb-rmv="sudo xpbs-remove" \
-      xb-qry="sudo xpbs-query -Rs" \
-      xb-cln="sudo xbps-remove -v -O "
+      xb-up="doas xbps-install -Suv && xcheckrestart" \
+      xb-get="doas xpbs-install" \
+      xb-rmv="doas xpbs-remove" \
+      xb-qry="doas xpbs-query -Rs" \
+      xb-cln="doas xbps-remove -v -O "
 elif [ "${os}" = "Fedora Linux" ]; then
     alias \
-      dnf-up="sudo dnf update" \
-      dnf-get="sudo dnf install" \
-      dnf-rmv="sudo dnf remove" \
-      dnf-cln="sudo dnf autoremove"
+      dnf-up="doas dnf update" \
+      dnf-get="doas dnf install" \
+      dnf-rmv="doas dnf remove" \
+      dnf-cln="doas dnf autoremove"
 fi
 
 # colorize grep output (good for log files)
