@@ -1,13 +1,10 @@
 # Greeting
 echo "welcome to the void"
 
-# Prompt
-# PROMPT="%F{red}┌[%f%F{cyan}%m%f%F{red}]─[%f%F{yellow}%D{%H:%M-%d/%m}%f%F{red}]─[%f%F{magenta}%d%f%F{red}]%f"$'\n'"%F{red}└╼%f%F{green}$USER%f%F{yellow}$%f"
 # Export PATH$
-export PATH=~/.local/bin:/snap/bin:/usr/sandbox/:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/usr/share/games:/usr/local/sbin:/usr/sbin:/sbin:/usr/local/texlive/2022/bin/x86_64-linux:~/.emacs.d/bin:$PATH
+export PATH=~/.local/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/usr/share/games:/usr/local/sbin:/usr/sbin:/sbin:/usr/local/texlive/2022/bin/x86_64-linux:~/.emacs.d/bin:$PATH
 export JDK_HOME=/usr/lib/jvm/openjdk17
 export GPG_TTY=$(tty)
-
 
 # alias
 alias dir='dir --color=auto'
@@ -16,8 +13,6 @@ alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 alias batt='upower -i /org/freedesktop/UPower/devices/battery_BAT1'
-alias checkbright='xrandr --prop --verbose | grep -A10 " connected" | grep "Brightness"'
-alias setbright='xrandr --output eDP1 --brightness '
 #####################################################
 # Auto completion / suggestion
 # Mixing zsh-autocomplete and zsh-autosuggestions
@@ -31,8 +26,6 @@ source /usr/share/zsh/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 zstyle ':autocomplete:tab:*' insert-unambiguous yes
 zstyle ':autocomplete:tab:*' widget-style menu-select
 zstyle ':autocomplete:*' min-input 2
-# bindkey $key[Up] up-line-or-history
-# bindkey $key[Down] down-line-or-history
 bindkey "^[[1;5A" vi-beginning-of-line
 bindkey "^[[1;5B" vi-end-of-line
 bindkey "^[[1;5C" emacs-forward-word
@@ -45,7 +38,7 @@ bindkey "^[[3~" delete-char
 
 ##################################################
 # Fish like syntax highlighting
-# Requires "zsh-syntax-highlighting" from apt
+# Requires "zsh-syntax-highlighting"
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # Save type history for completion and easier life
@@ -54,9 +47,6 @@ HISTSIZE=10000
 SAVEHIST=10000
 setopt appendhistory
 
-# Useful alias for benchmarking programs
-# require install package "time" sudo apt install time
-# alias time="/usr/bin/time -f '\t%E real,\t%U user,\t%S sys,\t%K amem,\t%M mmem'"
 # Display last command interminal
 echo -en "\e]2;zsh\a"
 preexec () { print -Pn "\e]0;$1 - zsh\a" }
@@ -71,10 +61,6 @@ preexec () { print -Pn "\e]0;$1 - zsh\a" }
 export TERM="xterm-256color"                      # getting proper colors
 export HISTCONTROL=ignoredups:erasedups           # no duplicate entries
 
-# use bash-completion, if available
-[[ $PS1 && -f /usr/share/bash-completion/bash_completion ]] && \
-    . /usr/share/bash-completion/bash_completion
-
 # if not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
@@ -86,7 +72,7 @@ export HISTCONTROL=ignoredups:erasedups           # no duplicate entries
 
 ### SET VI MODE ###
 # Comment this line out to enable default emacs-like bindings
-#set -o vi
+set -o vi
 #bindkey -m vi-command 'Control-l: clear-screen'
 #bindkey -m vi-insert 'Control-l: clear-screen'
 
@@ -119,9 +105,6 @@ setopt autocd # change to named directory
 setopt dotglob
 setopt histappend # do not overwrite history
 
-
-# ignore upper and lowercase when TAB completion
-bindkey "set completion-ignore-case on"
 
 # sudo not required for some system commands
 for command in cryptsetup mount umount poweroff reboot ; do
@@ -207,12 +190,11 @@ if [ "${os}" = "Arch Linux" ]; then
       pac-cln="paru -Scc"
 elif [ "${os}" = "Void Linux" ]; then
     alias \
-      xb-up="sudo vpm update -Su && xcheckrestart" \
-      xb-get="sudo vpm install" \
-      xb-rmv="sudo vpm remove -R" \
-      xb-rmv-sec="sudo vpm remove" \
-      xb-qry="sudo vpm search" \
-      xb-cln="sudo vpm cleanup -o"
+      xb-up="sudo xbps-install -Suv && xcheckrestart" \
+      xb-get="sudo xpbs-install" \
+      xb-rmv="sudo xpbs-remove" \
+      xb-qry="sudo xpbs-query -Rs" \
+      xb-cln="sudo xbps-remove -v -O "
 elif [ "${os}" = "Fedora Linux" ]; then
     alias \
       dnf-up="sudo dnf update" \
@@ -283,7 +265,6 @@ fi
 # file management
 alias \
   fm="$HOME/.config/vifm/scripts/vifmrun" \
-  file="$HOME/.config/vifm/scripts/vifmrun" \
   flm="$HOME/.config/vifm/scripts/vifmrun" \
   vifm="$HOME/.config/vifm/scripts/vifmrun" \
   rm="rm -vI" \
