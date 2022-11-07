@@ -6,11 +6,15 @@ set hidden
 set inccommand=split
 set mouse=a
 set number
-" set relativenumber
+set relativenumber
 set splitbelow splitright
 set title
 set ttimeoutlen=0
 set wildmenu
+
+set list
+highlight EOLWhitespace ctermbg=red guibg=red
+match EOLWhitespace /\s\+$/
 
 " Use tabs rather than spaces
 set autoindent noexpandtab tabstop=4 shiftwidth=4
