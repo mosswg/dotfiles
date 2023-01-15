@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 
-# ***This script was made by Clay Gomera (Drake)***
+# ***This script was made by Clay Gomera (Drake) and modified by Moss Gallagher (mosswg)***
 #  - Description: A simple wallpaper changer script
-#  - Dependencies: rofi, fd, feh
+#  - Dependencies: rofi, fd, hyprpaper
 
 ## MAIN VARIABLES AND COMMANDS ##
-walldir="Pictures/Wallpapers/" # wallpapers folder, change it to yours, make sure that it ends with a /
+walldir="$HOME/wallpapers/" # wallpapers folder, change it to yours, make sure that it ends with a /
 cd "$walldir" || exit
 
 ## SELECT PICTURE FUNCTION ##
@@ -28,17 +28,7 @@ option5="Scale"
 options="$option1\n$option2\n$option3\n$option4\n$option5"
 
 ## MAIN ACTION ##
-action=$(echo -e "$options" | rofi -dmenu -l 10 -b -i -p "Chose the format:")
-case "$action" in
-    $option1*)
-        feh --bg-fill "$chosenwall";;
-    $option2*)
-        feh --bg-center "$chosenwall";;
-    $option3*)
-        feh --bg-tile "$chosenwall";;
-    $option4*)
-        feh --bg-max "$chosenwall";;
-    $option5*)
-        feh --bg-scale "$chosenwall";;
-esac
+echo "$walldir$chosenwall";
+hyprctl hyprpaper preload "$walldir$chosenwall";
+hyprctl hyprpaper wallpaper eDP-1,"$walldir$chosenwall";
 exit 0
