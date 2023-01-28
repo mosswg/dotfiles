@@ -47,18 +47,18 @@ ruled.client.connect_signal("request::rules", function()
 
 -- TAG 1
     ruled.client.append_rule {
+    rule_any = { class = "" },
+       properties = { tag = "" },
+    }
+-- TAG 2
+    ruled.client.append_rule {
     rule_any = { class = {
                "Emacs",
                "Godot",
                "Virt-manager"
                }
             },
-       properties = { tag = "" },
-    }
--- TAG 2
-    ruled.client.append_rule {
-    rule = { class = "vifm" },
-       properties = { tag = "" },
+       properties = { tag = "" },
     }
 -- TAG 3
     ruled.client.append_rule {
@@ -137,11 +137,10 @@ ruled.client.connect_signal("request::rules", function()
 -- TAG 9
     ruled.client.append_rule {
       rule_any = { class = {
-                     "retroarch",
-                     "steam"
+		  		"thunderbird",
                     }
                  },
-       properties = { tag = "" }
+       properties = { tag = "" }
     }
 --}}}
     -- }

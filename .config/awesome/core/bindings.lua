@@ -312,7 +312,7 @@ awful.keyboard.append_global_keybindings({
         awful.keygrabber.run(
           function(_, key, event)
             if event == "release" then return end
-			if     key == "e" then awful.util.spawn("setxkbmap es")
+			if     key == "e" then awful.util.spawn("setxkbmap es dvorak")
 			elseif key == "u" then awful.util.spawn("setxkbmap us")
 			elseif key == "d" then awful.util.spawn("setxkbmap us dvorak")
             end
@@ -328,15 +328,15 @@ awful.keyboard.append_global_keybindings({
       grabber =
         awful.keygrabber.run(
           function(_, key, event)
-            if event == "release" then return end
-            if     key == "d" then awful.spawn.with_shell("rofi -show drun -show-icons")
-            elseif key == "r" then awful.spawn.with_shell("rofi -show run")
-            elseif key == "e" then awful.spawn.with_shell("$HOME/.config/rofi/scripts/rofi_edit")
-            elseif key == "q" then awful.spawn.with_shell("$HOME/.config/rofi/scripts/rofi_power")
-            elseif key == "i" then awful.spawn.with_shell("$HOME/.config/rofi/scripts/rofi_wifi")
-            elseif key == "b" then awful.spawn.with_shell("$HOME/.config/rofi/scripts/rofi_blue")
-            elseif key == "s" then awful.spawn.with_shell("$HOME/.config/rofi/scripts/rofi_scrot")
-            elseif key == "z" then awful.spawn.with_shell("$HOME/.config/rofi/scripts/rofi_emoji")
+			if event == "release" then return end
+			if     key == "d" then awful.spawn.with_shell("rofi -show drun -show-icons")
+			elseif key == "r" then awful.spawn.with_shell("rofi -show run")
+			elseif key == "e" then awful.spawn.with_shell("$HOME/.config/rofi/scripts/rofi_edit")
+			elseif key == "q" then awful.spawn.with_shell("$HOME/.config/rofi/scripts/rofi_power")
+			elseif key == "i" then awful.spawn.with_shell("$HOME/.config/rofi/scripts/rofi_wifi")
+			elseif key == "b" then awful.spawn.with_shell("$HOME/.config/rofi/scripts/rofi_blue")
+			elseif key == "s" then awful.spawn.with_shell("$HOME/.config/rofi/scripts/rofi_scrot")
+			elseif key == "z" then awful.spawn.with_shell("$HOME/.config/rofi/scripts/rofi_emoji")
 			elseif key == "c" then awful.spawn.with_shell("rofi -modi calc -show calc -calc-command 'xdotool type --clearmodifiers \"{result}\"'")
 			elseif key == "w" then awful.spawn.with_shell("rofi_et")
 			elseif key == "n" then awful.spawn.with_shell("nbrowser")

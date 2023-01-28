@@ -10,15 +10,15 @@ mytextclock = wibox.widget.textclock()
 
 screen.connect_signal("request::desktop_decoration", function(s)
 -- Tag names for each screen
-    awful.tag({ "",
-                "",
+    awful.tag({ "",
+                "",
                 "",
                 "",
                 "",
                 "",
                 "",
                 "",
-                ""
+                ""
               }, s, awful.layout.layouts[1])
 
 --  Layoutbox widget
