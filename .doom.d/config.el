@@ -47,6 +47,7 @@
 (setq-default indent-tabs-mode t)
 (setq-default tab-width 4)
 (setq-default tab-always-indent t)
+(global-set-key (kbd "TAB") 'self-insert-command);
 
 (setq global-whitespace-mode t)
 (global-whitespace-mode +1)
