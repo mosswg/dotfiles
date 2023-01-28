@@ -6,6 +6,7 @@ $inactive: #44475a;
 $darkblue: #6272a4;
 $cyan: #8be9fd;
 $green: #50fa7b;
+$darkpurple: #9900cc;
 $orange: #ffb86c;
 $pink: #ff79c6;
 $purple: #bd93f9;
@@ -151,6 +152,17 @@ $textsize: 16px;
 }
 .cpu-data-text {
     color: $green;
+    margin-right: 6px;
+    font-size: $textsize;
+}
+
+.battery-util-progress {
+    color: $darkpurple;
+    background-color: $inactive;
+    font-size: $textsize;
+}
+.battery-data-text {
+    color: $darkpurple;
     margin-right: 6px;
     font-size: $textsize;
 }

@@ -129,6 +129,18 @@
   font-size: 16px;
 }
 
+.battery-util-progress {
+  color: #9900cc;
+  background-color: #44475a;
+  font-size: 16px;
+}
+
+.battery-data-text {
+  color: #9900cc;
+  margin-right: 6px;
+  font-size: 16px;
+}
+
 .ws-dead {
   color: #44475a;
   font-size: 22px;
