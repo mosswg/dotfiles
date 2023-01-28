@@ -1,5 +1,5 @@
-CPUThermalZone: /sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon2/temp1_input
+CPUThermalZone: /sys/class/thermal/thermal_zone0/hwmon1/temp1_input
 SuspendCommand: ~/.config/scripts/sys.sh suspend
 LockCommand: ~/.config/scripts/sys.sh lock
-ExitCommand: killall Hyprland
+ExitCommand: hyprctl disbatch exit 0
 BatteryFolder: /sys/class/power_supply/BAT1
