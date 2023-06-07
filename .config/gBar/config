@@ -1,5 +1,29 @@
+# Example configuration.
+# Everything after '#' is ignored
+# Format of the variables:
+#    [variable]: [value]
+# Whitespaces are ignored in the following locations:
+# - Before the variable
+# - After the ':'
+# - After the value
+
+# The CPU sensor to use
 CPUThermalZone: /sys/class/thermal/thermal_zone0/hwmon1/temp1_input
+
+# The command to execute on suspend
 SuspendCommand: ~/.config/scripts/sys.sh suspend
+
+# The command to execute on lock
 LockCommand: ~/.config/scripts/sys.sh lock
-ExitCommand: hyprctl disbatch exit 0
+
+# The command to execute on exit
+ExitCommand: hyprctl dispatch exit 0
+
+# The folder, where the battery sensors reside
 BatteryFolder: /sys/class/power_supply/BAT1
+
+# Overrides the icon of the nth (in this case the first) workspace
+WorkspaceSymbol-1: 
+WorkspaceSymbol-2: 󱃖
+WorkspaceSymbol-3: 󰈹
+WorkspaceSymbol-4: 

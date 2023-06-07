@@ -9,6 +9,7 @@ fi
 # Export PATH$
 export PATH=~/.local/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/usr/share/games:/usr/local/sbin:/usr/sbin:/sbin:/usr/local/texlive/2022/bin/x86_64-linux:~/.emacs.d/bin:$PATH
 export JDK_HOME=/usr/lib/jvm/openjdk17
+export PICO_SDK_PATH=/home/moss/documents/coding/gitclones/pico-sdk
 export GPG_TTY=$(tty)
 
 # alias
@@ -36,10 +37,10 @@ bindkey "^[[1;5A" vi-beginning-of-line
 bindkey "^[[1;5B" vi-end-of-line
 bindkey "^[[1;5C" emacs-forward-word
 bindkey "^[[1;5D" emacs-backward-word
-bindkey '^H' backward-kill-word
 bindkey '5~' kill-word
 
-bindkey "^[[3~" delete-char
+bindkey -a "^[[3~" vi-delete-char
+bindkey "^[[3~" vi-delete-char
 
 
 ##################################################
@@ -112,6 +113,12 @@ setopt dotglob
 setopt histappend # do not overwrite history
 
 
+### pyenv ###
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
+
 # doas not required for some system commands
 for command in cryptsetup mount umount poweroff reboot; do
 alias $command="doas $command"
@@ -182,7 +189,7 @@ alias \
   la="exa -a --color=always --group-directories-first" \
   ll="exa -l --color=always --group-directories-first" \
   lt="exa -aT --color=always --group-directories-first" \
-  l.='exa -a | egrep "^\."'
+  l.='exa -a | grep -E "^\."'
 
 # function to detect os and assign aliases to package managers
 os=$(grep NAME /etc/os-release | head -1 | cut -d'=' -f2 | sed 's/["]//g')

@@ -130,13 +130,13 @@
 }
 
 .battery-util-progress {
-  color: #9900cc;
+  color: #ff79c6;
   background-color: #44475a;
   font-size: 16px;
 }
 
 .battery-data-text {
-  color: #9900cc;
+  color: #ff79c6;
   margin-right: 6px;
   font-size: 16px;
 }

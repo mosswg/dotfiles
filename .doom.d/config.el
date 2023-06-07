@@ -45,13 +45,15 @@
 (setq x-select-enable-clipboard t)
 
 (setq-default indent-tabs-mode t)
-(setq-default tab-width 4)
+(setq-default tab-width 4) ; Assuming you want your tabs to be four spaces wide
+
 (setq-default tab-always-indent t)
 (global-set-key (kbd "TAB") 'self-insert-command);
 
 (setq global-whitespace-mode t)
 (global-whitespace-mode +1)
 (setq whitespace-line nil)
+
 
 
 ;;; mycelium/mycelium.el -*- lexical-binding: t; -*-
@@ -72,7 +74,7 @@
 
 (eval-and-compile
   (defconst mycelium-keywords
-    '("int" "string" "func" "oper" "cond")))
+    '("int" "string" "func" "oper" "cond" "return" "while" "if")))
 
 (defconst mycelium-highlights
   `((,(regexp-opt mycelium-keywords 'symbols) . font-lock-keyword-face)))

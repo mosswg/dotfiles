@@ -23,6 +23,8 @@ set autoindent noexpandtab tabstop=4 shiftwidth=4
 " Plugins will be downloaded under the specified directory.
 call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
 
+call pathogen#infect()
+
 " Declare the list of plugins.
 Plug 'tpope/vim-sensible'
 Plug 'junegunn/seoul256.vim'

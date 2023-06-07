@@ -6,7 +6,6 @@ $inactive: #44475a;
 $darkblue: #6272a4;
 $cyan: #8be9fd;
 $green: #50fa7b;
-$darkpurple: #9900cc;
 $orange: #ffb86c;
 $pink: #ff79c6;
 $purple: #bd93f9;
@@ -16,11 +15,12 @@ $yellow: #f1fa8c;
 
 $btblue: #1793D1;
 
+$workspace-symbol-size: 22px;
 $textsize: 16px;
 
 *{
     all: unset;
-    font-family: "CaskaydiaCove Nerd Font";
+    font-family: "Mononoki Nerd Font";
 }
 
 // debug
@@ -31,7 +31,7 @@ $textsize: 16px;
 
 .bar,tooltip{
     background-color: $bg;
-    border-radius: 16px;
+    border-radius: 0px 0px 16px 16px;
 }
 
 .right {
@@ -157,35 +157,35 @@ $textsize: 16px;
 }
 
 .battery-util-progress {
-    color: $darkpurple;
+    color: $pink;
     background-color: $inactive;
     font-size: $textsize;
 }
 .battery-data-text {
-    color: $darkpurple;
+    color: $pink;
     margin-right: 6px;
     font-size: $textsize;
 }
 
 .ws-dead {
     color: $inactive;
-    font-size: $textsize;
+    font-size: $workspace-symbol-size;
 }
 .ws-inactive {
     color: $darkblue;
-    font-size: $textsize;
+    font-size: $workspace-symbol-size;
 }
 .ws-visible {
     color: $cyan;
-    font-size: $textsize;
+    font-size: $workspace-symbol-size;
 }
 .ws-current {
     color: $yellow;
-    font-size: $textsize;
+    font-size: $workspace-symbol-size;
 }
 .ws-active {
     color: $green;
-    font-size: $textsize;
+    font-size: $workspace-symbol-size;
 }
 
 // Bluetooth Widget

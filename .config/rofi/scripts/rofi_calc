@@ -76,7 +76,7 @@ action=$(echo -e "Copy to clipboard\nClear\nClose" | $menu "$@" -p "= $answer")
 
 case $action in
     "Clear") $0 "--dmenu=$menu" "--" "$@" ;;
-    "Copy to clipboard") echo -n "$answer" | xclip -selection clipboard ;;
+    "Copy to clipboard") echo -n "$answer" | wl-copy ;;
     "Close") ;;
     "") ;;
     *) $0 "$answer $action" "--dmenu=$menu" "--" "$@" ;;
